@@ -124,6 +124,8 @@ function configClickHandler(){
 			url: dataUrl,
 			masterKey: masterKey
 		});
+		let response = JSONBIN.get(COPY_DATA);
+		StoreService.set(UtilsService.CONSTANT.SESSION.CHART_DATA, response);
 	}
 }
 

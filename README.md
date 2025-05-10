@@ -1,0 +1,2 @@
+# trade
+Visualización de trades

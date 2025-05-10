@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <base href="file:///C:/Users/franh/Desktop/Fran/xtb/graphic/" />
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!--App dependencies-->
+    <script src="src/services/jsonbin.service.js"></script>
+    <script src="src/services/store.service.js"></script>
+    <script src="src/services/utils.service.js"></script>
+
+    <!--components-->
+    <script src="src/components/wcHeader/wcHeader.component.js"></script>
+</head>
+
+<body>
+
+    <wc-header></wc-header>
+
+    <section class="bg-white space-sm">
+
+        <form>
+            <h3>Configuración JSONBin</h3>
+            <div class="form-group col-6">
+                <label class="form-label" for="dataUrl">JSONBIN url:</label>
+                <input type="text" class="form-control" id="dataUrl" aria-describedby="dataUrlHelp"
+                    placeholder="YYYY-MM-DD">
+                <!-- <small id="dataUrlHelp" class="form-text text-muted">Formato YYYY-MM-DD</small> -->
+            </div>
+            <div class="form-group col-6">
+                <label class="form-label" for="masterKey">Master key:</label>
+                <input type="text" class="form-control" id="masterKey" aria-describedby="masterKeyHelp"
+                    placeholder="YYYY-MM-DD">
+                <!-- <small id="masterKeyHelp" class="form-text text-muted">Formato YYYY-MM-DD</small> -->
+            </div>
+
+            <input type="button" class="btn btn-primary mt-3" value="Añadir" onclick="configClickHandler()">
+        </form>
+
+        <!-- <label for="dataUrl">JSONBIN url:</label>
+        <input type="text" id="dataUrl" name="dataUrl"><br>
+        <label for="masterKey">Master key:</label>
+        <input type="text" id="masterKey" name="masterKey"><br>
+        <input type="button" value="Submit" onclick="configClickHandler()"><br> -->
+
+        <hr>
+
+        <form>
+            <h3>Añadir nuevo resultado diario</h3>
+            <div class="form-group col-6">
+                <label class="form-label" for="fecha">Fecha:</label>
+                <input type="text" class="form-control" id="fecha" aria-describedby="fechaHelp"
+                    placeholder="YYYY-MM-DD">
+                <!-- <small id="fechaHelp" class="form-text text-muted">Formato YYYY-MM-DD</small> -->
+            </div>
+
+            <div class="form-group col-6">
+                <label class="form-label" for="nuevoCapital">Nuevo capital:</label>
+                <input type="text" class="form-control" id="nuevoCapital" aria-describedby="nuevoCapitalHelp"
+                    placeholder="0.00">
+                <!-- <small id="nuevoCapitalHelp" class="form-text text-muted">Formato 100.67</small> -->
+            </div>
+
+            <div class="form-group col-6">
+                <label class="form-label" for="invertido">Invertido:</label>
+                <input type="text" class="form-control" id="invertido" aria-describedby="invertidoHelp"
+                    placeholder="0.00">
+                <!-- <small id="invertidoHelp" class="form-text text-muted">Formato 100.67</small> -->
+            </div>
+
+            <input type="button" class="btn btn-primary mt-3" value="Añadir" onclick="addNewItemHandler()">
+        </form>
+
+        <hr>
+
+        <form>
+            <label for="ratio">ratio riesgo beneficio (2:ratio1):</label>
+            <input type="text" id="ratio" name="ratio"><br>
+
+            <label for="precioActualAccion">Precio actual de la acción a comprar:</label>
+            <input type="text" id="precioActualAccion" name="precioActualAccion"><br>
+
+            <label for="takeProfitAccion">Precio objetivo de la acción:</label>
+            <input type="text" id="takeProfitAccion" name="takeProfitAccion"><br>
+
+            <label for="totalAmount">Importe de la cuenta:</label>
+            <input type="text" id="totalAmount" name="totalAmount"><br>
+
+            <label for="riskAmount">Riesgo de la cuenta:</label>
+            <input type="text" id="riskAmount" name="riskAmount">%<br>
+
+            <label for="positionSizeForm">Tamaño de la posicion (opcional):</label>
+            <input type="text" id="positionSizeForm" name="positionSizeForm"><br>
+
+            Precio de entrada: <span id="responseEntrada"></span><br>
+            Take profit: <span id="responseTakeProfit"></span><br>
+            Stop Loss: <span id="responseStopLoss"></span><br>
+            Tamaño de la posicion: <span id="responseSize"></span><br>
+            Ganancia total: <span id="responseWin"></span><br>
+            Perdida tortal: <span id="responseLoss"></span><br>
+            Importe ganado: <span id="responseWinValue"></span><br>
+            Importe perdido: <span id="responseLossValue"></span><br>
+
+
+            <input type="button" value="Submit" onclick="formAccionClickHandler()">
+        </form>
+
+    </section>
+
+    <!--Script para inicializar la logica-->
+    <script src="src/views/configuration/configuration.controller.js"></script>
+</body>
+
+</html>

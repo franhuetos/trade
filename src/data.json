@@ -1,0 +1,259 @@
+{
+    "2024": {
+        "revenue": 14.03,
+        "deposit": 500,
+        "depositTotal": 500,
+        "months": [
+            {
+                "name": "2024-08-31",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 100,
+                "depositTotal": 100,
+                "total": {
+                    "previousValue": 0,
+                    "actualValue": 100,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2024-09-30",
+                "revenue": 7.81,
+                "revenue%": 3.91,
+                "deposit": 100,
+                "depositTotal": 200,
+                "total": {
+                    "previousValue": 100,
+                    "actualValue": 207.81,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2024-10-31",
+                "revenue": 9.54,
+                "revenue%": 3.18,
+                "deposit": 100,
+                "depositTotal": 300,
+                "total": {
+                    "previousValue": 207.81,
+                    "actualValue": 317.35,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2024-11-30",
+                "revenue": -5.92,
+                "revenue%": -1.48,
+                "deposit": 100,
+                "depositTotal": 400,
+                "total": {
+                    "previousValue": 317.35,
+                    "actualValue": 411.43,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2024-12-31",
+                "revenue": 2.6,
+                "revenue%": 0.52,
+                "deposit": 100,
+                "depositTotal": 500,
+                "total": {
+                    "previousValue": 411.43,
+                    "actualValue": 514.03,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            }
+        ]
+    },
+    "2025": {
+        "revenue": 110.99,
+        "deposit": 300,
+        "depositTotal": 800,
+        "months": [
+            {
+                "name": "2025-01-31",
+                "revenue": 66.62,
+                "revenue%": 11.08,
+                "deposit": 100,
+                "depositTotal": 600,
+                "total": {
+                    "previousValue": 514.03,
+                    "actualValue": 680.65,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2025-02-28",
+                "revenue": 35.06,
+                "revenue%": 5.01,
+                "deposit": 100,
+                "depositTotal": 700,
+                "total": {
+                    "previousValue": 680.65,
+                    "actualValue": 815.71,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2025-03-31",
+                "revenue": 9.31,
+                "revenue%": 1.16,
+                "deposit": 100,
+                "depositTotal": 800,
+                "total": {
+                    "previousValue": 815.71,
+                    "actualValue": 925.02,
+                    "actualProfit": 0,
+                    "actualProfit%": 0
+                }
+            },
+            {
+                "name": "2025-04-01",
+                "revenue": 4.08,
+                "revenue%": 0.44,
+                "deposit": 100,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 925.02,
+                    "actualValue": 889.39,
+                    "actualProfit": -35.63,
+                    "actualProfit%": -16.07
+                }
+            },
+            {
+                "name": "2025-04-10",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 889.39,
+                    "actualValue": 887.01,
+                    "nonDeposit": 10.85,
+                    "actualProfit": -1.14,
+                    "actualProfit%": -0.27
+                }
+            },
+            {
+                "name": "2025-04-11",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 887.01,
+                    "actualValue": 893.12,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 6.110000000000014,
+                    "actualProfit%": 100.68883101656125
+                }
+            },
+            {
+                "name": "2025-04-14",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 893.12,
+                    "actualValue": 910.02,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 16.899999999999977,
+                    "actualProfit%": 101.89224292368326
+                }
+            },
+            {
+                "name": "2025-04-15",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 910.02,
+                    "actualValue": 925.4399999999999,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 15.419999999999959,
+                    "actualProfit%": 101.69446825344497
+                }
+            },
+            {
+                "name": "2025-04-16",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 925.4399999999999,
+                    "actualValue": 922.8199999999999,
+                    "nonDeposit": 10.55,
+                    "actualProfit": -2.6200000000000045,
+                    "actualProfit%": 99.71689142461963
+                }
+            },
+            {
+                "name": "2025-04-17",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 922.8199999999999,
+                    "actualValue": 921.28,
+                    "nonDeposit": 10.55,
+                    "actualProfit": -1.5399999999999636,
+                    "actualProfit%": 99.83312021846082
+                }
+            },
+            {
+                "name": "2025-04-22",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 921.28,
+                    "actualValue": 932.0999999999999,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 10.819999999999936,
+                    "actualProfit%": 101.17445293504687
+                }
+            },
+            {
+                "name": "2025-04-23",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 932.0999999999999,
+                    "actualValue": 942.1099999999999,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 10.009999999999991,
+                    "actualProfit%": 101.07391910739192
+                }
+            },
+            {
+                "name": "2025-04-25",
+                "revenue": 0,
+                "revenue%": 0,
+                "deposit": 0,
+                "depositTotal": 900,
+                "total": {
+                    "previousValue": 942.1099999999999,
+                    "actualValue": 958.6899999999999,
+                    "nonDeposit": 10.55,
+                    "actualProfit": 16.58000000000004,
+                    "actualProfit%": 101.7598794196007
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+[
+    {
+        "empresa": "bankinter",
+        "fechaCompra": "2025-04-10",
+        "fechaVenta": "2025-04-11",
+        "ratio": "2:1",
+        "riesgo": "1%", //riesgo del total de la cuenta
+        "plazo": "corto", // corto | medio | largo
+        "accion": {
+            "compra": 10,
+            "takeProfit": 15,
+            "stopLoss": 8,
+            "takeProfit%": 1, // porcentage de diferencia entre compra y take profit
+            "stopLoss%": 0.5, // porcentage de diferencia entre compra y stop loss
+            "venta": 14
+        },
+        "posicion": {
+            "compra": 300,
+            "venta": 315,
+            "diferencia%": 3 // porcentage de diferencia entre compra y venta
+        }
+    }
+
+]

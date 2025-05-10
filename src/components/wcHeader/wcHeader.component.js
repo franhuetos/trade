@@ -47,7 +47,7 @@
         </style>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="src/views/apexcharts/apexcharts.html">Apex Charts</a>
+                <a class="nav-link active" aria-current="page" href="src/views/apexcharts2/apexcharts2.html">Apex Charts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="src/views/jscharts/jscharts.html">JS Charts</a>

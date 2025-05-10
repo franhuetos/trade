@@ -86,18 +86,9 @@ async function addNewItemHandler(){
 	}
 
 	newItem = {
-		"name": fecha,
-		"revenue": 0,       // importe de ganancia/perdida de las operaciones cerradas en el dia
-		"revenue%": 0,      //  calculado en base a previousValue + revenue
+		"date": fecha,
 		"deposit": nuevoCapital,
-		"depositTotal": previousMonth.depositTotal + nuevoCapital,
-		"total": {
-			"previousValue": previousMonth.total.actualValue,  //valor al cierre del dia anterior
-			"actualValue": importeInvertido,  // el valor actual al cierre del dia incluye el valor nonDeposit
-			"nonDeposit": 0,    // dinero no invertido en ninguna accion, deprecado
-			"actualProfit": importeInvertido - previousMonth.total.actualValue,
-			"actualProfit%": (importeInvertido / previousMonth.total.actualValue) * 100,
-		}
+		"current": importeInvertido
 	}
 
 	COPY_DATA[year].months.push(newItem);

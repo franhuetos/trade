@@ -4,7 +4,7 @@
     function get(name){
         try{
             let chartData = localStorage.getItem(name);
-            return chartData? JSON.parse(chartData) : {};
+            return chartData? JSON.parse(chartData) : null;
         }catch(e){
             return null;
         }

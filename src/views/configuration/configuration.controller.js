@@ -115,7 +115,7 @@ async function addNewItemHandler(){
 	location.reload();
 };
 
-function configClickHandler(){
+async function configClickHandler(){
 	const dataUrl = document.getElementById('dataUrl').value;
 	const masterKey = document.getElementById('masterKey').value;
 	if (window.confirm("Estas seguro de querer configurar estos datos?. Perderás la información guardada en localStorage.")) {
@@ -124,7 +124,7 @@ function configClickHandler(){
 			url: dataUrl,
 			masterKey: masterKey
 		});
-		let response = JSONBIN.get();
+		let response = await JSONBIN.get();
 		StoreService.set(UtilsService.CONSTANT.SESSION.CHART_DATA, response);
 	}
 }

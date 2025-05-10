@@ -43,7 +43,7 @@ function formAccionClickHandler(){
 
 
 async function addNewItemHandler(){
-    let FULL_DATA = StoreService.get('chartData');
+    let FULL_DATA = StoreService.get(UtilsService.CONSTANT.SESSION.CHART_DATA);
 	
 	if(!FULL_DATA){
 		alert('No se han encontrado datos');

@@ -2,6 +2,10 @@ let FULL_DATA;
 const StoreService = window.StoreService;
 const UtilsService = window.UtilsService;
 const JSONBIN = window.JSONBIN;
+let jsonBinConfig = StoreService.get(UtilsService.CONSTANT.SESSION.JSONBIN);
+
+document.getElementById('dataUrl').value = jsonBinConfig.url;
+document.getElementById('masterKey').value = jsonBinConfig.masterKey;
 
 
 function formAccionClickHandler(){

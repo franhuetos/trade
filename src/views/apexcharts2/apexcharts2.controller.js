@@ -1,7 +1,8 @@
 const StoreService = window.StoreService;
+const UtilsService = window.UtilsService;
 
 (async function init(){
-	let FULL_DATA = StoreService.get('chartData2');
+	let FULL_DATA = StoreService.get(UtilsService.CONSTANT.SESSION.CHART_DATA);
 	
 	if(!FULL_DATA){
 		alert('No se han encontrado datos');

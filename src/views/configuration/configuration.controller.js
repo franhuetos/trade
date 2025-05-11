@@ -55,43 +55,42 @@ async function addNewItemHandler(){
 	const importeInvertido = Number(document.getElementById('invertido').value);
 	const COPY_DATA = JSON.parse(JSON.stringify(FULL_DATA));
 
-	let newItem = {
-		"name": "",
-		"revenue": 0,       // importe de ganancia/perdida de las operaciones cerradas en el dia
-		"revenue%": 0,      //  calculado en base a previousValue + revenue
-		"deposit": 0,
-		"depositTotal": 0,
-		"total": {
-			"previousValue": 0,  //valor al cierre del dia anterior
-			"actualValue": 0,  // el valor actual al cierre del dia incluye el valor nonDeposit
-			"nonDeposit": 0,    // dinero no invertido en ninguna accion
-			"actualProfit": 0,  // previousValue - actualValue
-			"actualProfit%": 0,
-		}
-	};
-	let [year, month, day] = fecha.split('-');
-	newItem.name = fecha;
-	let thisYear = null;
-	let previousMonth = null;
 
-	if (COPY_DATA[year]) {
-		//el año ya existe
-		thisYear = COPY_DATA[year];
-		previousMonth = thisYear && thisYear.months.length ? thisYear.months[thisYear.months.length -1] : getNewItem();
-	} else {
-		//es un nuevo año
-		thisYear = { months: [] };
-		let previousYear = COPY_DATA[year - 1];
-		previousMonth = previousYear && previousYear.months.length ? previousYear.months[thisYear.months.length -1] : getNewItem();
+
+	let [year, month, day] = fecha.split('-');
+
+	if(Number(year) < 2024){
+		alert('Año de la fecha incorrecto');
+		return;
 	}
 
-	newItem = {
+	if(Number(month) <= 0 || Number(month) > 12){
+		alert('Mes de la fecha incorrecto');
+		return;
+	}
+
+	if(Number(day) <= 0 || Number(day) > 31){
+		alert('Dia de la fecha incorrecto');
+		return;
+	}
+
+	if(isNaN(nuevoCapital)){
+		alert('Nuevo capital incorrecto');
+		return;
+	}
+
+	if(isNaN(importeInvertido)){
+		alert('Importe invertido incorrecto');
+		return;
+	}
+
+	const newItem = {
 		"date": fecha,
 		"deposit": nuevoCapital,
 		"current": importeInvertido
 	}
 
-	COPY_DATA[year].months.push(newItem);
+	COPY_DATA.push(newItem);
     const JsonBinConfig = StoreService.get(UtilsService.CONSTANT.SESSION.JSONBIN);
     JSONBIN.config(JsonBinConfig.url, JsonBinConfig.masterKey);
 	let response = await JSONBIN.set(COPY_DATA);

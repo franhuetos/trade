@@ -88,6 +88,11 @@ async function addNewItemHandler(){
 		return;
 	}
 
+	if(FULL_DATA && FULL_DATA.length){
+		nuevoCapital = FULL_DATA[FULL_DATA.length-1].deposit + nuevoCapital;
+	}
+	
+
 	const newItem = {
 		"date": fecha,
 		"deposit": nuevoCapital,

@@ -88,14 +88,15 @@ async function addNewItemHandler(){
 		return;
 	}
 
+	let totalCapital = nuevoCapital;
 	if(FULL_DATA && FULL_DATA.length){
-		nuevoCapital = FULL_DATA[FULL_DATA.length-1].deposit + nuevoCapital;
+		totalCapital = FULL_DATA[FULL_DATA.length-1].deposit + nuevoCapital;
 	}
 	
 
 	const newItem = {
 		"date": fecha,
-		"deposit": nuevoCapital,
+		"deposit": totalCapital,
 		"current": importeInvertido
 	}
 

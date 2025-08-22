@@ -6,6 +6,7 @@ let jsonBinConfig = StoreService.get(UtilsService.CONSTANT.SESSION.JSONBIN);
 
 document.getElementById('dataUrl').value = jsonBinConfig.url;
 document.getElementById('masterKey').value = jsonBinConfig.masterKey;
+document.getElementById('fecha').value = new Date().toISOString().split('T')[0];
 
 
 function formAccionClickHandler(){

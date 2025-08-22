@@ -161,7 +161,7 @@ const UtilsService = window.UtilsService;
         resetCssClasses(e);
         let lastDateFormated = new Date(lastDay);
         let newYear = lastDateFormated.getFullYear() - 1;
-        let newMonth = lastDateFormated.getMonth();
+        let newMonth = lastDateFormated.getMonth() + 1;
         let newDay = lastDateFormated.getDate();
         chart.zoomX(
             new Date(`${newYear}-${newMonth}-${newDay}`).getTime(),
@@ -173,7 +173,7 @@ const UtilsService = window.UtilsService;
         let lastDateFormated = new Date(lastDay);
         let newYear = lastDateFormated.getFullYear();
         chart.zoomX(
-            new Date(`${newYear}-01-31`).getTime(),
+            new Date(`${newYear}-01-01`).getTime(),
             lastDay
         );
       });

@@ -129,7 +129,7 @@ const UtilsService = window.UtilsService;
             newMonth = 12;
             newYear = lastDateFormated.getFullYear() - 1;
         }else{
-            newMonth = month + 1;
+            newMonth = month;
             newYear = lastDateFormated.getFullYear();
         }
         chart.zoomX(

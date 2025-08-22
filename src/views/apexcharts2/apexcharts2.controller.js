@@ -126,10 +126,10 @@ const UtilsService = window.UtilsService;
         let newMonth;
         let newDay = lastDateFormated.getDate();
         if(month == 0){
-            newMonth = 11;
+            newMonth = 12;
             newYear = lastDateFormated.getFullYear() - 1;
         }else{
-            newMonth = month - 1;
+            newMonth = month + 1;
             newYear = lastDateFormated.getFullYear();
         }
         chart.zoomX(
@@ -141,7 +141,7 @@ const UtilsService = window.UtilsService;
         resetCssClasses(e);
         let lastDateFormated = new Date(lastDay);
         let month = lastDateFormated.getMonth();
-        let monthMinusSix = month - 6;
+        let monthMinusSix = month - 5;
         let newYear;
         let newMonth;
         let newDay = lastDateFormated.getDate();

@@ -121,15 +121,35 @@ const UtilsService = window.UtilsService;
       document.querySelector('#one_month').addEventListener('click', function (e) {
         resetCssClasses(e);
         let lastDateFormated = new Date(lastDay);
-        let month = lastDateFormated.getMonth();
+        let month = lastDateFormated.getMonth() + 1;
         let newYear;
         let newMonth;
         let newDay = lastDateFormated.getDate();
-        if(month == 0){
+        if(month == 1){
             newMonth = 12;
             newYear = lastDateFormated.getFullYear() - 1;
         }else{
-            newMonth = month;
+            newMonth = month - 1;
+            newYear = lastDateFormated.getFullYear();
+        }
+        chart.zoomX(
+            new Date(`${newYear}-${newMonth}-${newDay}`).getTime(),
+            lastDay
+        );
+      });
+       document.querySelector('#three_months').addEventListener('click', function (e) {
+        resetCssClasses(e);
+        let lastDateFormated = new Date(lastDay);
+        let month = lastDateFormated.getMonth() + 1;
+        let monthMinusThree = month - 3;
+        let newYear;
+        let newMonth;
+        let newDay = lastDateFormated.getDate();
+        if(monthMinusThree < 0){
+            newMonth = 12 + monthMinusThree;
+            newYear = lastDateFormated.getFullYear() - 1;
+        }else{
+            newMonth = monthMinusThree;
             newYear = lastDateFormated.getFullYear();
         }
         chart.zoomX(
@@ -140,8 +160,8 @@ const UtilsService = window.UtilsService;
       document.querySelector('#six_months').addEventListener('click', function (e) {
         resetCssClasses(e);
         let lastDateFormated = new Date(lastDay);
-        let month = lastDateFormated.getMonth();
-        let monthMinusSix = month - 5;
+        let month = lastDateFormated.getMonth() + 1;
+        let monthMinusSix = month - 6;
         let newYear;
         let newMonth;
         let newDay = lastDateFormated.getDate();

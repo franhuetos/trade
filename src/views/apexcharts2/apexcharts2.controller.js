@@ -307,29 +307,8 @@ function initPorcentageChart(FULL_DATA) {
   const mediaMensualGanancias = calcularMediaMensualGanancias(dataChartElements);
   const mediaAnualGanancias = calcularMediaAnualGanancias(dataChartElements);
 
-  let yearInitial = FULL_DATA[0].date.split('-')[0];
-  let monthInitial = FULL_DATA[0].date.split('-')[1];
-  let prevision1 = calculoAnual(FULL_DATA[0].deposit, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision2 = calculoAnual(prevision1, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision3 = calculoAnual(prevision2, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision4 = calculoAnual(prevision3, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision5 = calculoAnual(prevision4, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision6 = calculoAnual(prevision5, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision7 = calculoAnual(prevision6, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision8 = calculoAnual(prevision7, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision9 = calculoAnual(prevision8, FULL_DATA[0].deposit, mediaMensualGanancias);
-  let prevision10 = calculoAnual(prevision9, FULL_DATA[0].deposit, mediaMensualGanancias);
-
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 1}: ${prevision1}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 2}: ${prevision2}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 3}: ${prevision3}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 4}: ${prevision4}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 5}: ${prevision5}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 6}: ${prevision6}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 7}: ${prevision7}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 8}: ${prevision8}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 9}: ${prevision9}`);
-  console.log(`Prevision ${monthInitial}/${Number(yearInitial) + 10}: ${prevision10}`);
+  showPrediccion(FULL_DATA, mediaMensualGanancias);
+  
 
   var options = {
     chart: {
@@ -484,6 +463,25 @@ function calculoAnual(importeInicial, incremento, porcentage){
     importeTotal = importeTotal + incremento;
   }
   return importeTotal;
+}
+
+function showPrediccion(FULL_DATA, mediaMensualGanancias){
+  let yearInitial = FULL_DATA[0].date.split('-')[0];
+  let monthInitial = FULL_DATA[0].date.split('-')[1];
+  let prevision = [];
+  let originalInversion = FULL_DATA[0].deposit;
+  let importeAnterior = FULL_DATA[0].deposit;
+  for(let i = 0; i < 20; i++){
+    importeAnterior = calculoAnual(importeAnterior, originalInversion, mediaMensualGanancias)
+    prevision.push(importeAnterior);
+  }
+
+  const parrafo = document.getElementById('prediccion');
+  let text = '';
+  for(let i = 0; i < prevision.length; i++){
+    text+= `Prevision ${monthInitial}/${Number(yearInitial) + i + 1}: ${prevision[i]} \n`;
+  }
+  parrafo.innerText = text;
 }
 
 

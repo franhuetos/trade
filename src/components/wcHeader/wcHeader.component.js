@@ -58,6 +58,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="src/views/calculoPerdidas/calculoPerdidas.html">Calculo perdidas</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="src/views/calculoInversion/calculoInversion.html">Calculo inversión</a>
+            </li>
         </ul>
       `;
 

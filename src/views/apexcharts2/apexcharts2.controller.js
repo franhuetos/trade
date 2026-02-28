@@ -187,7 +187,7 @@ function initInversionChart(FULL_DATA) {
     yaxis: {
       labels: {
         formatter: function (value) {
-          return value.toFixed(2) + '&euro;';
+          return Math.round(value) + '€';
         }
       }
     },
@@ -254,7 +254,7 @@ function initGananciasChart(FULL_DATA) {
     yaxis: {
       labels: {
         formatter: function (value) {
-          return value.toFixed(2) + '€';
+          return Math.round(value) + '€';
         }
       }
     },
@@ -310,86 +310,112 @@ function initPorcentageChart(FULL_DATA) {
   showPrediccion(FULL_DATA, mediaMensualGanancias);
   
 
-  var options = {
-    chart: {
-      type: 'line',
-      height: 320,
-      toolbar: {
-        show: false
-      },
-      id: 'total',
-      group: 'inversiones',
-    },
-    dataLabels: {
-      enabled: false
-    },
-    stroke: {
-      width: [5, 5],
-      curve: 'straight',
-      dashArray: [0, 5]
-    },
-    series: [
-      {
-        name: 'Total',
-        data: dataChartElements
-      }
-    ],
-    markers: {
-      size: 0,
-      style: 'hollow'
-    },
-    colors: ["#4caf50"],
-    xaxis: {
-      type: 'datetime',
-      min: dataChartElements[0][0],
-      tickAmount: 6
-    },
-    yaxis: {
-      labels: {
-        formatter: function (value) {
-          return value.toFixed(2) + '%';
-        }
-      }
-    },
-    tooltip: {
-      x: {
-        format: 'dd-MM-yyyy'
-      }
-    },
-    grid: {
-      row: {
-        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-        opacity: 0.5
-      },
-    },
-    annotations: {
-      yaxis: [{
-        y: mediaMensualGanancias,
-        borderColor: '#0071e3ff',
-        label: {
-          borderColor: '#0071e3ff',
-          style: {
-            color: '#fff',
-            background: '#0071e3ff',
+   var options = {
+          series: [{
+          name: 'Porcentage',
+          data: dataChartElements.map(element => element[1])
+        }],
+          chart: {
+          height: 350,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            // borderRadius: 10,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          formatter: function (val) {
+            return val.toFixed(2) + "%";
           },
-          text: `${mediaMensualGanancias.toFixed(2)}% Mensual`,
-        }
-      },
-    {
-        y: mediaAnualGanancias,
-        borderColor: '#0071e3ff',
-        label: {
-          borderColor: '#0071e3ff',
+          offsetY: -20,
           style: {
-            color: '#fff',
-            background: '#0071e3ff',
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
+        },
+        colors: [function({ value, seriesIndex, w }) {
+          if (value <= 0) return '#e53935';
+          else return '#4caf50';
+        }],
+        
+        xaxis: {
+          type: 'category',
+          tickAmount: dataChartElements.length/2,
+          categories: dataChartElements.map(element => {
+            const dateObj = new Date(element[0]);
+            const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+            const dia = dateObj.getDate();
+            const mes = dateObj.getMonth() + 1;
+            const anio = dateObj.getFullYear();
+            return `${dia}/${mes}/${anio}`;
+          }),
+          axisBorder: {
+            show: false
           },
-          text: `${mediaAnualGanancias.toFixed(2)}% Anual`,
+          axisTicks: {
+            show: false
+          },
+          tooltip: {
+            enabled: true
+          }
+        },
+        yaxis: {
+          opposite: true,
+          labels: {
+            show: true,
+            formatter: function (val) {
+              return val.toFixed(2) + "%";
+            }
+          }
+        
+        },
+        title: {
+          text: 'Porcentage de ganacias mensuales',
+          floating: true,
+          offsetY: 330,
+          align: 'center',
+          style: {
+            color: '#444'
+          }
+        },
+        annotations: {
+          yaxis: [{
+            y: mediaMensualGanancias,
+            strokeDashArray: 5,
+            borderColor: '#0071e3ff',
+            label: {
+              offsetX: 65,
+              // borderColor: '#0071e3ff',
+              style: {
+                color: '#0071e3ff',
+                // background: '#0071e3ff',
+              },
+              text: `${mediaMensualGanancias.toFixed(2)}% Mes`,
+            }
+          },
+        {
+            y: mediaAnualGanancias,
+            strokeDashArray: 5,
+            borderColor: '#0071e3ff',
+            label: {
+              offsetX: 65,
+              borderColor: '#0071e3ff',
+              style: {
+                color: '#fff',
+                background: '#0071e3ff',
+              },
+              text: `${mediaAnualGanancias.toFixed(2)}% Año`,
+            }
+          }]
         }
-      }]
-    }
+      };
 
-  };
+
   let chart = new ApexCharts(document.querySelector('#porcentage-chart'), options);
   chart.render();
 }
@@ -479,7 +505,13 @@ function showPrediccion(FULL_DATA, mediaMensualGanancias){
   const parrafo = document.getElementById('prediccion');
   let text = '';
   for(let i = 0; i < prevision.length; i++){
-    text+= `Prevision ${monthInitial}/${Number(yearInitial) + i + 1}: ${prevision[i]} \n`;
+    const year = i+1;
+    const monthsPerYear = 12;
+    const importeAbonado = originalInversion * (year * monthsPerYear);
+    const fecha = monthInitial/Number(yearInitial) + i + 1;
+    const total = Math.round(prevision[i]);
+    const ganancia  = total - importeAbonado;
+    text+= `Prevision ${monthInitial}/${Number(yearInitial) + i + 1}: ${total} original ${importeAbonado} beneficio ${ganancia}\n`;
   }
   parrafo.innerText = text;
 }

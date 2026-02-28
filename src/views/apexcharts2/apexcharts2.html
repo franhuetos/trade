@@ -18,6 +18,7 @@
     <script src="src/services/store.service.js"></script>
     <script src="src/services/utils.service.js"></script>
     <!--components-->
+    <script src="src/views/apexcharts2/data.js"></script>
     <script src="src/components/wcHeader/wcHeader.component.js"></script>
 </head>
 
@@ -72,12 +73,126 @@
       </div>
     </div>
 
+    <!-- <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Movimientos</h5>
+        </div>
+        <div class="card-body">
+          <div class="toolbar btn-group">
+          </div>
+          <div id="candlestick-chart"></div>
+          <div id="candlestick-bar"></div>
+        </div>
+      </div>
+    </div> -->
+
     <h3>Predicción</h3>
     <p id="prediccion"></p>
 
 
       <!--Script para inicializar la logica-->
       <script src="src/views/apexcharts2/apexcharts2.controller.js"></script>
+
+      <!-- <script>
+        var options = {
+          series: [{
+          data: window.data
+        }],
+        toolbar: {
+            autoSelected: 'pan',
+            show: false
+          },
+          chart: {
+          type: 'candlestick',
+          height: 350,
+          id: 'candles'
+        },
+        title: {
+          text: 'CandleStick Chart',
+          align: 'left'
+        },
+        xaxis: {
+          type: 'category'
+        },
+        yaxis: {
+          tooltip: {
+            enabled: true
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#candlestick-chart"), options);
+        chart.render();
+
+        var optionsBar = {
+          series: [{
+          data: window.data.map(element => {
+            return {
+              x: element.x,
+              y: element.z
+            }
+          })
+        }],
+          chart: {
+          type: 'bar',
+          height: 350,
+          brush: {
+            enabled: true,
+            target: 'candles'
+          },
+        },
+        selection: {
+            enabled: true,
+            min: window.data[0].x,
+            max: window.data[window.data.length - 1].x,
+            fill: {
+              color: '#ccc',
+              opacity: 0.4
+            },
+            stroke: {
+              color: '#0D47A1',
+            }
+          },
+        xaxis: {
+          type: 'category',
+          axisBorder: {
+            offsetX: 13
+          }
+        },
+        yaxis: {
+          tooltip: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 0
+        },
+        dataLabels: {
+          enabled: true
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: '80%',
+            colors: {
+              ranges: [{
+                from: -1000,
+                to: -0.001,
+                color: '#F15B46'
+              }, {
+                from: 0,
+                to: 10000,
+                color: '#00b746'
+              }],
+        
+            },
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#candlestick-bar"), optionsBar);
+        chart.render();
+      </script> -->
 </body>
 
 </html>
